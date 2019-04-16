@@ -3,7 +3,28 @@ html
   head
     meta(charset='utf-8')
     title AWS - Test
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', type='text/css' )
     link(rel='stylesheet', href='css/styles.css', type='text/css' )
   body
-    h1 Welcome
-    p Is it working fine?
+    .m-5
+      h1.my-3 Welcome stranger!
+      p.font-weight-bold Please, register first:
+
+      form(method='POST' action='/register')
+        div.form-group
+          label(for='name') Name:
+          input(type='text', placeholder='first and last' name='name')
+        div.form-group
+          label(for='email') Email:
+          input(type='email', placeholder='name@email.com' name='email')
+        div.form-group
+          label(for='pw') Password:
+          input(type='password' name='password')
+        div.form-group
+          label(for='pw2') Confirm Password:
+          input(type='password' name='confirmPassword')
+        button.btn.btn-primary(type='submit') Sign up
+    
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
