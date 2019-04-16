@@ -10,7 +10,7 @@ html
       h1.my-3 Welcome stranger!
       p.font-weight-bold Please, register first:
 
-      form(method='POST' action='/register')
+      form(method='POST' action='/users/register')
         div.form-group
           label(for='name') Name:
           input(type='text', placeholder='first and last' name='name')
@@ -24,7 +24,11 @@ html
           label(for='pw2') Confirm Password:
           input(type='password' name='confirmPassword')
         button.btn.btn-primary(type='submit') Sign up
+
+      button.btn.btn-primary.my-5(type='button' onClick='getUsers()') Get all users
+      div#emptyDiv
     
+    script(src='/scripts/main.js')
     script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
     script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')

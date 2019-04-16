@@ -10,7 +10,7 @@ const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${
   process.env.MONGO_PASSWORD
 }@cluster0-idsge.mongodb.net/aws-test?retryWrites=true`;
 
-const User = require("./models/user");
+const users = require("./routes/user");
 
 const app = express();
 
@@ -25,20 +25,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.post("/register", async (req, res) => {
-  console.log(req.body);
-  const { name, email, password, confirmPassword } = req.body;
-
-  const newUser = new User({ name, email, password });
-  try {
-    const savedUser = await newUser.save();
-    console.log(savedUser);
-  } catch (err) {
-    console.log(err);
-  }
-
-  res.redirect("/");
-});
+app.use("/users", users);
 
 mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true })
